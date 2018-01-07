@@ -2,9 +2,9 @@ public class Rover {
 
     private Position position;
 
-    private char direction;
+    private Direction direction;
 
-    public Rover(int x, int y, char direction) {
+    public Rover(int x, int y, Direction direction) {
         this.position = new Position(x, y);
         this.direction = direction;
     }
@@ -17,7 +17,7 @@ public class Rover {
         return position.getY();
     }
 
-    public char getDirection() {
+    public Direction getDirection() {
         return direction;
     }
 
@@ -33,12 +33,14 @@ public class Rover {
     }
 
     private void turn(String instruction) {
-        RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
-        this.direction = roverDirectionStatePrototype.prototype(this.direction).turn(instruction);
+//        RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
+//        this.direction = roverDirectionStatePrototype.prototype(this.direction).turn(instruction);
+        this.direction = this.direction.turn(instruction);
     }
 
     private void move() {
-        RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
-        this.position = roverDirectionStatePrototype.prototype(this.direction).move(this);
+//        RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
+//        this.position = roverDirectionStatePrototype.prototype(this.direction).move(this);
+        this.position = this.direction.move(this.position);
     }
 }
