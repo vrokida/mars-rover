@@ -8,7 +8,7 @@ public class Rover {
 
     public Rover(int x, int y, CardinalPoint dir) {
         this.position = new Position(x, y);
-        this.direction = new DirectionAsCardinalPoint(dir).getDirection();
+        this.direction = new DirectionAsCardinalPoint(dir).getDirectionValue();
 
     }
 

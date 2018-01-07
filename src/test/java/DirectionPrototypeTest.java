@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 public class DirectionPrototypeTest {
 
     @Test
-    public void shouldReturnRoverNorthStateWhenReceiveNAsKey() {
+    public void shouldReturnRoverNorthStateWhenReceiveNorthAsCardinalPoint() {
         RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
 
         Direction direction = roverDirectionStatePrototype.prototype(CardinalPoint.NORTH);
@@ -15,7 +15,7 @@ public class DirectionPrototypeTest {
     }
 
     @Test
-    public void shouldReturnRoverSouthStateWhenReceiveSAsKey() {
+    public void shouldReturnRoverSouthStateWhenReceiveSouthAsCardinalPoint() {
         RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
 
         Direction direction = roverDirectionStatePrototype.prototype(CardinalPoint.SOUTH);
@@ -24,7 +24,7 @@ public class DirectionPrototypeTest {
     }
 
     @Test
-    public void shouldReturnRoverEastStateWhenReceiveEAsKey() {
+    public void shouldReturnRoverEastStateWhenReceiveEastAsCardinalPoint() {
         RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
 
         Direction direction = roverDirectionStatePrototype.prototype(CardinalPoint.EAST);
@@ -33,12 +33,11 @@ public class DirectionPrototypeTest {
     }
 
     @Test
-    public void shouldReturnRoverWestStateWhenReceiveEAsKey() {
+    public void shouldReturnRoverWestStateWhenReceiveWestAsCardinalPoint() {
         RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
 
         Direction direction = roverDirectionStatePrototype.prototype(CardinalPoint.WEST);
 
         assertTrue(direction instanceof West);
     }
-
 }

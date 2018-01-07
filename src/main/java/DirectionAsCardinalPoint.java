@@ -2,14 +2,14 @@ import location.CardinalPoint;
 
 public class DirectionAsCardinalPoint {
 
-    private Direction direction;
+    private CardinalPoint cardinal;
 
     public DirectionAsCardinalPoint(CardinalPoint car){
-        this.direction = RoverDirectionStatePrototype.prototype(car);
+        this.cardinal= car;
 
     }
 
-    public Direction getDirection() {
-        return direction;
+    public Direction getDirectionValue() {
+        return RoverDirectionStatePrototype.prototype(this.cardinal);
     }
 }
