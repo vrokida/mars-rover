@@ -21,17 +21,17 @@ public class Rover {
         return direction;
     }
 
-    public void followInstructions(String instructions) {
-        if (instructions.equals("M")) {
+    public void followInstructions(String instruction) {
+        if (instruction.equals("M")) {
             move();
         } else {
-            turn();
+            turn(instruction);
         }
     }
 
-    private void turn() {
+    private void turn(String instruction) {
         RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
-        this.direction = roverDirectionStatePrototype.prototype(this.direction).turn();
+        this.direction = roverDirectionStatePrototype.prototype(this.direction).turn(instruction);
     }
 
     private void move() {

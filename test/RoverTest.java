@@ -69,7 +69,7 @@ public class RoverTest {
 
 
     @Test
-    public void shouldTurnEast() {
+    public void shouldTurnEastWhenActualDirectionIsNorthAndInstructionIsR() {
         int expectedX = getRandomInt();
         int expectedY = getRandomInt();
         Rover rover = new Rover(expectedX, expectedY, N);
@@ -80,7 +80,7 @@ public class RoverTest {
     }
 
     @Test
-    public void shouldTurnSouth() {
+    public void shouldTurnSouthWhenActualDirectionIsEastAndInstructionIsR() {
         int expectedX = getRandomInt();
         int expectedY = getRandomInt();
         Rover rover = new Rover(expectedX, expectedY, E);
@@ -91,7 +91,7 @@ public class RoverTest {
     }
 
     @Test
-    public void shouldTurnWest() {
+    public void shouldTurnWestWhenActualDirectionIsSouthAndInstructionIsR() {
         int expectedX = getRandomInt();
         int expectedY = getRandomInt();
         Rover rover = new Rover(expectedX, expectedY, S);
@@ -102,12 +102,56 @@ public class RoverTest {
     }
 
     @Test
-    public void shouldTurnNorth() {
+    public void shouldTurnNorthWhenActualDirectionIsWestAndInstructionIsR() {
         int expectedX = getRandomInt();
         int expectedY = getRandomInt();
         Rover rover = new Rover(expectedX, expectedY, W);
 
         rover.followInstructions("R");
+
+        assertRover(rover, expectedX, expectedY, N);
+    }
+
+    @Test
+    public void shouldTurnWestWhenActualDirectionIsNorthAndInstructionIsL() {
+        int expectedX = getRandomInt();
+        int expectedY = getRandomInt();
+        Rover rover = new Rover(expectedX, expectedY, N);
+
+        rover.followInstructions("L");
+
+        assertRover(rover, expectedX, expectedY, W);
+    }
+
+    @Test
+    public void shouldTurnSouthWhenActualDirectionIsWestAndInstructionIsL() {
+        int expectedX = getRandomInt();
+        int expectedY = getRandomInt();
+        Rover rover = new Rover(expectedX, expectedY, W);
+
+        rover.followInstructions("L");
+
+        assertRover(rover, expectedX, expectedY, S);
+    }
+
+    @Test
+    public void shouldTurnEastWhenActualDirectionIsSouthAndInstructionIsL() {
+        int expectedX = getRandomInt();
+        int expectedY = getRandomInt();
+        Rover rover = new Rover(expectedX, expectedY, S);
+
+        rover.followInstructions("L");
+
+        assertRover(rover, expectedX, expectedY, E);
+    }
+
+    @Test
+    public void shouldTurnNorthWhenActualDirectionIsEastAndInstructionIsL() {
+        int expectedX = getRandomInt();
+        int expectedY = getRandomInt();
+        Rover rover = new Rover(expectedX, expectedY, E);
+
+        rover.followInstructions("L");
 
         assertRover(rover, expectedX, expectedY, N);
     }

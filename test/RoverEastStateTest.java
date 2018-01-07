@@ -20,8 +20,17 @@ public class RoverEastStateTest {
     public void shouldReturnSouthDirection() {
         RoverEastState roverEastState = new RoverEastState();
 
-        char actualDirection = roverEastState.turn();
+        char actualDirection = roverEastState.turn("R");
 
         assertEquals(actualDirection, 'S');
+    }
+
+    @Test
+    public void shouldReturnNorthDirection() {
+        RoverEastState roverEastState = new RoverEastState();
+
+        char actualDirection = roverEastState.turn("L");
+
+        assertEquals(actualDirection, 'N');
     }
 }

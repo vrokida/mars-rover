@@ -7,7 +7,8 @@ public class RoverWestState implements RoverDirectionState {
     }
 
     @Override
-    public char turn() {
-        return 'N';
+    public char turn(String instruction) {
+
+        return instruction.equals("R") ? 'N' : 'S';
     }
 }

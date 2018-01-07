@@ -8,7 +8,7 @@ public class RoverWestStateTest {
     public void shouldReturnWestDirection() {
         RoverWestState roverWestState = new RoverWestState();
 
-        char actualDirection = roverWestState.turn();
+        char actualDirection = roverWestState.turn("R");
 
         assertEquals(actualDirection, 'N');
     }
@@ -23,5 +23,14 @@ public class RoverWestStateTest {
 
         assertEquals(actualPosition.getX(), expectedX);
         assertEquals(actualPosition.getY(), rover.getY());
+    }
+
+    @Test
+    public void shouldReturnSouthDirection() {
+        RoverWestState roverWestState = new RoverWestState();
+
+        char actualDirection = roverWestState.turn("L");
+
+        assertEquals(actualDirection, 'S');
     }
 }
