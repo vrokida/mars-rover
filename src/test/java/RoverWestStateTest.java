@@ -1,36 +1,40 @@
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class RoverWestStateTest {
 
+//    @Test
+//    public void shouldReduceInOneXPosition() {
+//        Rover rover = new Rover(3, 0, new West());
+//        West roverWestState = new West();
+//        int expectedX = 2;
+//
+//        Position actualPosition = roverWestState.move(rover);
+//
+//        assertEquals(actualPosition.getX(), expectedX);
+//        assertEquals(actualPosition.getY(), rover.getY());
+//    }
+
     @Test
     public void shouldReturnWestDirection() {
-        RoverWestState roverWestState = new RoverWestState();
+        West roverWestState = new West();
 
-        char actualDirection = roverWestState.turn("R");
+        Direction newDirection = roverWestState.turn("R");
 
-        assertEquals(actualDirection, 'N');
-    }
-
-    @Test
-    public void shouldReduceInOneXPosition() {
-        Rover rover = new Rover(3, 0, 'W');
-        RoverWestState roverWestState = new RoverWestState();
-        int expectedX = 2;
-
-        Position actualPosition = roverWestState.move(rover);
-
-        assertEquals(actualPosition.getX(), expectedX);
-        assertEquals(actualPosition.getY(), rover.getY());
+        assertTrue(newDirection instanceof North);
     }
 
     @Test
     public void shouldReturnSouthDirection() {
-        RoverWestState roverWestState = new RoverWestState();
+        West roverWestState = new West();
 
-        char actualDirection = roverWestState.turn("L");
+        Direction newDirection = roverWestState.turn("L");
 
-        assertEquals(actualDirection, 'S');
+        assertTrue(newDirection instanceof  South);
     }
+
+
+
 }

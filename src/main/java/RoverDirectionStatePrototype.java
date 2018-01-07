@@ -3,18 +3,18 @@ import java.util.Map;
 
 public class RoverDirectionStatePrototype {
 
-    private Map<Character, RoverDirectionState> prototypes;
+    private Map<Character, Direction> prototypes;
 
 
     public RoverDirectionStatePrototype() {
         this.prototypes = new HashMap();
-        this.prototypes.put('N', new RoverNorthState());
-        this.prototypes.put('S', new RoverSouthState());
-        this.prototypes.put('E', new RoverEastState());
-        this.prototypes.put('W', new RoverWestState());
+        this.prototypes.put('N', new North());
+        this.prototypes.put('S', new South());
+        this.prototypes.put('E', new East());
+        this.prototypes.put('W', new West());
     }
 
-    public RoverDirectionState prototype(char direction) {
-        return prototypes.get(direction);
-    }
+//    public Direction prototype(char direction) {
+//        return prototypes.get(direction);
+//    }
 }
