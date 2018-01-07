@@ -1,43 +1,44 @@
+import location.CardinalPoint;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
 
-public class RoverDirectionStatePrototypeTest {
+public class DirectionPrototypeTest {
 
     @Test
     public void shouldReturnRoverNorthStateWhenReceiveNAsKey() {
         RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
 
-        RoverDirectionState roverDirectionState = roverDirectionStatePrototype.prototype('N');
+        Direction direction = roverDirectionStatePrototype.prototype(CardinalPoint.NORTH);
 
-        assertTrue(roverDirectionState instanceof RoverNorthState);
+        assertTrue(direction instanceof North);
     }
 
     @Test
     public void shouldReturnRoverSouthStateWhenReceiveSAsKey() {
         RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
 
-        RoverDirectionState roverDirectionState = roverDirectionStatePrototype.prototype('S');
+        Direction direction = roverDirectionStatePrototype.prototype(CardinalPoint.SOUTH);
 
-        assertTrue(roverDirectionState instanceof RoverSouthState);
+        assertTrue(direction instanceof South);
     }
 
     @Test
     public void shouldReturnRoverEastStateWhenReceiveEAsKey() {
         RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
 
-        RoverDirectionState roverDirectionState = roverDirectionStatePrototype.prototype('E');
+        Direction direction = roverDirectionStatePrototype.prototype(CardinalPoint.EAST);
 
-        assertTrue(roverDirectionState instanceof RoverEastState);
+        assertTrue(direction instanceof East);
     }
 
     @Test
     public void shouldReturnRoverWestStateWhenReceiveEAsKey() {
         RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
 
-        RoverDirectionState roverDirectionState = roverDirectionStatePrototype.prototype('W');
+        Direction direction = roverDirectionStatePrototype.prototype(CardinalPoint.WEST);
 
-        assertTrue(roverDirectionState instanceof RoverWestState);
+        assertTrue(direction instanceof West);
     }
 
 }

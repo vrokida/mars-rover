@@ -1,38 +1,40 @@
+import location.CardinalPoint;
 import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class RoverSouthStateTest {
 
     @Test
     public void shouldReduceInOneYPosition() {
-        Rover rover = new Rover(0, 2, 'S');
-        RoverSouthState roverSouthState = new RoverSouthState();
+        Rover rover = new Rover(0, 2, CardinalPoint.SOUTH);
+        South roverSouthState = new South();
         int expectedY = 1;
 
-        Position position = roverSouthState.move(rover);
+        Position position = roverSouthState.move(rover.getPosition());
 
         Assert.assertEquals(position.getX(), rover.getX());
         Assert.assertEquals(position.getY(), expectedY);
     }
 
+
     @Test
     public void shouldReturnWestDirection() {
-        RoverSouthState roverSouthState = new RoverSouthState();
+        South roverSouthState = new South();
 
-        char actualDirection = roverSouthState.turn("R");
+        Direction actualDirection = roverSouthState.turn("R");
 
-        assertEquals(actualDirection, 'W');
+        assertTrue(actualDirection instanceof West);
     }
 
     @Test
     public void shouldReturnEastDirection() {
-        RoverSouthState roverSouthState = new RoverSouthState();
+        South roverSouthState = new South();
 
-        char actualDirection = roverSouthState.turn("L");
+        Direction actualDirection = roverSouthState.turn("L");
 
-        assertEquals(actualDirection, 'E');
+        assertTrue(actualDirection instanceof East);
     }
-
 }

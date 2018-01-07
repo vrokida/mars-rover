@@ -1,24 +1,15 @@
+import location.CardinalPoint;
+
 public class Rover {
 
     private Position position;
 
-    private char direction;
+    private Direction direction;
 
-    public Rover(int x, int y, char direction) {
+    public Rover(int x, int y, CardinalPoint dir) {
         this.position = new Position(x, y);
-        this.direction = direction;
-    }
+        this.direction = new DirectionAsCardinalPoint(dir).getDirection();
 
-    public int getX() {
-        return position.getX();
-    }
-
-    public int getY() {
-        return position.getY();
-    }
-
-    public char getDirection() {
-        return direction;
     }
 
     public void followInstructions(String instructions) {
@@ -33,12 +24,26 @@ public class Rover {
     }
 
     private void turn(String instruction) {
-        RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
-        this.direction = roverDirectionStatePrototype.prototype(this.direction).turn(instruction);
+        this.direction = this.direction.turn(instruction);
     }
 
     private void move() {
-        RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
-        this.position = roverDirectionStatePrototype.prototype(this.direction).move(this);
+        this.position = this.direction.move(this.position);
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public int getX() {
+        return position.getX();
+    }
+
+    public int getY() {
+        return position.getY();
+    }
+
+    public Direction getDirection() {
+        return direction;
     }
 }

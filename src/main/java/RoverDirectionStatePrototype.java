@@ -1,20 +1,24 @@
+import location.CardinalPoint;
+
 import java.util.HashMap;
 import java.util.Map;
 
+import static location.CardinalPoint.*;
+
 public class RoverDirectionStatePrototype {
 
-    private Map<Character, RoverDirectionState> prototypes;
+    private static Map<CardinalPoint, Direction> prototypes;
 
 
-    public RoverDirectionStatePrototype() {
-        this.prototypes = new HashMap();
-        this.prototypes.put('N', new RoverNorthState());
-        this.prototypes.put('S', new RoverSouthState());
-        this.prototypes.put('E', new RoverEastState());
-        this.prototypes.put('W', new RoverWestState());
+    static {
+        prototypes = new HashMap();
+        prototypes.put(NORTH, new North());
+        prototypes.put(SOUTH, new South());
+        prototypes.put(EAST, new East());
+        prototypes.put(WEST, new West());
     }
 
-    public RoverDirectionState prototype(char direction) {
-        return prototypes.get(direction);
+    public static Direction prototype(CardinalPoint dir) {
+        return prototypes.get(dir);
     }
 }

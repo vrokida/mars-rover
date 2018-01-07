@@ -1,16 +1,20 @@
+import location.CardinalPoint;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class RoverNorthStateTest {
 
+
     @Test
     public void shouldIncreaseInOneYPosition() {
-        Rover rover = new Rover(0, 1, 'N');
-        RoverNorthState roverNorthState = new RoverNorthState();
+        Rover rover = new Rover(0, 1, CardinalPoint.NORTH);
+        North roverNorthState = new North();
         int expectedY = 2;
 
-        Position actualPosition = roverNorthState.move(rover);
+        Position actualPosition = roverNorthState.move(rover.getPosition());
 
         assertEquals(actualPosition.getX(), rover.getX());
         assertEquals(actualPosition.getY(), expectedY);
@@ -18,19 +22,20 @@ public class RoverNorthStateTest {
 
     @Test
     public void shouldReturnEastDirection() {
-        RoverNorthState roverNorthState = new RoverNorthState();
+        North roverNorthState = new North();
 
-        char actualDirection = roverNorthState.turn("R");
+        Direction actualDirection = roverNorthState.turn("R");
 
-        assertEquals(actualDirection, 'E');
+        assertTrue(actualDirection instanceof East);
     }
 
     @Test
     public void shouldReturnWestDirection() {
-        RoverNorthState roverNorthState = new RoverNorthState();
+        North roverNorthState = new North();
 
-        char actualDirection = roverNorthState.turn("L");
+        Direction actualDirection = roverNorthState.turn("L");
 
-        assertEquals(actualDirection, 'W');
+        assertTrue(actualDirection instanceof  West);
     }
+
 }
