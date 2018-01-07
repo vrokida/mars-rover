@@ -21,11 +21,14 @@ public class Rover {
         return direction;
     }
 
-    public void followInstructions(String instruction) {
-        if (instruction.equals("M")) {
-            move();
-        } else {
-            turn(instruction);
+    public void followInstructions(String instructions) {
+        String[] instructionsKeys = instructions.split("");
+        for (String instructionKey : instructionsKeys) {
+            if (instructionKey.equals("M")) {
+                move();
+            } else {
+                turn(instructions);
+            }
         }
     }
 
