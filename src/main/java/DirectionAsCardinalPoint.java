@@ -1,4 +1,5 @@
 import location.CardinalPoint;
+import location.Direction;
 
 public class DirectionAsCardinalPoint {
 

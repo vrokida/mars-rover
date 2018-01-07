@@ -1,3 +1,4 @@
+import location.*;
 import org.junit.Test;
 
 import java.util.Random;
@@ -17,7 +18,7 @@ public class RoverTest {
 
         assertEquals(rover.getX(), expectedX);
         assertEquals(rover.getY(), expectedY);
-        assertEquals(rover.getDirection() , new North());
+        assertEquals(rover.getLocation() , new North());
     }
 
     @Test
@@ -168,7 +169,7 @@ public class RoverTest {
     private void assertRover(Rover actualRover, int expectedX, int expectedY, Direction expectedDirection){
         assertEquals(actualRover.getX(), expectedX);
         assertEquals(actualRover.getY(), expectedY);
-        assertEquals( expectedDirection, actualRover.getDirection());
+        assertEquals(expectedDirection, actualRover.getLocation());
     }
 
     private int getRandomInt() {

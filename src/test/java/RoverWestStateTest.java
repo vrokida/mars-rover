@@ -1,4 +1,4 @@
-import location.CardinalPoint;
+import location.*;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -33,7 +33,7 @@ public class RoverWestStateTest {
 
         Direction newDirection = roverWestState.turn("L");
 
-        assertTrue(newDirection instanceof  South);
+        assertTrue(newDirection instanceof South);
     }
 
 

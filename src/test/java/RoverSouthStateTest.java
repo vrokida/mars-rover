@@ -1,4 +1,4 @@
-import location.CardinalPoint;
+import location.*;
 import org.junit.Assert;
 import org.junit.Test;
 

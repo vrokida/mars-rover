@@ -1,49 +1,30 @@
-import location.CardinalPoint;
+import location.*;
+import movement.Motioner;
 
 public class Rover {
 
-    private Position position;
-
-    private Direction direction;
+    Locator locator;
+    Motioner mover;
 
     public Rover(int x, int y, CardinalPoint dir) {
-        this.position = new Position(x, y);
-        this.direction = new DirectionAsCardinalPoint(dir).getDirectionValue();
-
+        Position position = new Position(x, y);
+        Locator locator = new MapLocator(RoverDirectionStatePrototype.prototype(dir, position));
+        this.locator = locator;
     }
 
     public void followInstructions(String instructions) {
         String[] instructionsKeys = instructions.split("");
         for (String instructionKey : instructionsKeys) {
-            if (instructionKey.equals("M")) {
-                move();
-            } else {
-                turn(instructions);
-            }
+            move(instructionKey);
+
         }
     }
 
-    private void turn(String instruction) {
-        this.direction = this.direction.turn(instruction);
-    }
 
-    private void move() {
-        this.position = this.direction.move(this.position);
-    }
-
-    public Position getPosition() {
-        return position;
-    }
-
-    public int getX() {
-        return position.getX();
-    }
-
-    public int getY() {
-        return position.getY();
-    }
-
-    public Direction getDirection() {
-        return direction;
+    private void move(String instruction) {
+        if(instruction.equals("M")) {
+            Location nextLocation = locator.nextLocation(instruction);
+            mover.move(nextLocation);
+        }
     }
 }

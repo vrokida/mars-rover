@@ -1,9 +1,9 @@
-import location.CardinalPoint;
+import location.*;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
 
-public class DirectionPrototypeTest {
+public class LocationPrototypeTest {
 
     @Test
     public void shouldReturnRoverNorthStateWhenReceiveNorthAsCardinalPoint() {

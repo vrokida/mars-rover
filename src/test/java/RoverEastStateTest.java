@@ -1,4 +1,4 @@
-import location.CardinalPoint;
+import location.*;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
