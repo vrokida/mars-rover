@@ -6,60 +6,65 @@ import static org.junit.Assert.assertEquals;
 
 public class RoverTest {
 
+    private static final char N = 'N';
+    private static final char S = 'S';
+    private static final char W = 'W';
+    private static final char E = 'E';
+
     @Test
     public void shouldSetRightPosition() {
         int expectedX = getRandomInt();
         int expectedY = getRandomInt();
 
-        Rover rover = new Rover(expectedX, expectedY, 'N');
+        Rover rover = new Rover(expectedX, expectedY, N);
 
         assertEquals(rover.getX(), expectedX);
         assertEquals(rover.getY(), expectedY);
-        assertEquals(rover.getDirection(), 'N');
+        assertEquals(rover.getDirection(), N);
     }
 
     @Test
     public void shouldMoveOneStepNorth() {
         int expectedX = getRandomInt();
         int expectedY = 1;
-        Rover rover = new Rover(expectedX, 0, 'N');
+        Rover rover = new Rover(expectedX, 0, N);
 
         rover.followInstructions("M");
 
-        assertPositionRover(rover, expectedX, expectedY, 'N');
+        assertRover(rover, expectedX, expectedY, N);
     }
 
     @Test
     public void shouldMoveOneStepSouth() {
         int expectedX = getRandomInt();
         int expectedY = -1;
-        Rover rover = new Rover(expectedX, 0, 'S');
+        Rover rover = new Rover(expectedX, 0, S);
 
         rover.followInstructions("M");
 
-        assertPositionRover(rover, expectedX, expectedY, 'S');
+        assertRover(rover, expectedX, expectedY, S);
     }
 
     @Test
     public void shouldMoveOneStepWest() {
         int expectedY = getRandomInt();
         int expectedX = -1;
-        Rover rover = new Rover(0, expectedY, 'W');
+        Rover rover = new Rover(0, expectedY, W);
 
         rover.followInstructions("M");
 
-        assertPositionRover(rover, expectedX, expectedY, 'W');
+        assertRover(rover, expectedX, expectedY, W);
     }
 
     @Test
     public void shouldMoveOneStepEast() {
         int expectedY = getRandomInt();
         int expectedX = 0;
-        Rover rover = new Rover(-1, expectedY, 'E');
+        Rover rover = new Rover(-1, expectedY, E);
 
         rover.followInstructions("M");
 
-        assertPositionRover(rover, expectedX, expectedY, 'E');
+        assertRover(rover, expectedX, expectedY, 'E');
     }
 
 
@@ -67,47 +72,47 @@ public class RoverTest {
     public void shouldTurnEast() {
         int expectedX = getRandomInt();
         int expectedY = getRandomInt();
-        Rover rover = new Rover(expectedX, expectedY, 'N');
+        Rover rover = new Rover(expectedX, expectedY, N);
 
         rover.followInstructions("R");
 
-        assertPositionRover(rover, expectedX, expectedY, 'E');
+        assertRover(rover, expectedX, expectedY, E);
     }
 
     @Test
     public void shouldTurnSouth() {
         int expectedX = getRandomInt();
         int expectedY = getRandomInt();
-        Rover rover = new Rover(expectedX, expectedY, 'E');
+        Rover rover = new Rover(expectedX, expectedY, E);
 
         rover.followInstructions("R");
 
-        assertPositionRover(rover, expectedX, expectedY, 'S');
+        assertRover(rover, expectedX, expectedY, S);
     }
 
     @Test
     public void shouldTurnWest() {
         int expectedX = getRandomInt();
         int expectedY = getRandomInt();
-        Rover rover = new Rover(expectedX, expectedY, 'S');
+        Rover rover = new Rover(expectedX, expectedY, S);
 
         rover.followInstructions("R");
 
-        assertPositionRover(rover, expectedX, expectedY, 'W');
+        assertRover(rover, expectedX, expectedY, W);
     }
 
     @Test
     public void shouldTurnNorth() {
         int expectedX = getRandomInt();
         int expectedY = getRandomInt();
-        Rover rover = new Rover(expectedX, expectedY, 'W');
+        Rover rover = new Rover(expectedX, expectedY, W);
 
         rover.followInstructions("R");
 
-        assertPositionRover(rover, expectedX, expectedY, 'N');
+        assertRover(rover, expectedX, expectedY, N);
     }
 
-    private void assertPositionRover(Rover actualRover, int expectedX, int expectedY, char expectedDirection){
+    private void assertRover(Rover actualRover, int expectedX, int expectedY, char expectedDirection){
         assertEquals(actualRover.getX(), expectedX);
         assertEquals(actualRover.getY(), expectedY);
         assertEquals(actualRover.getDirection(), expectedDirection);
