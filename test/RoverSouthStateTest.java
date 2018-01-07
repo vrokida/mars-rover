@@ -7,7 +7,7 @@ public class RoverSouthStateTest {
 
     @Test
     public void shouldReduceInOneYPosition() {
-        Rover rover = new Rover(0, 2, 'S');
+        Rover rover = new Rover(0, 2, "S");
         RoverSouthState roverSouthState = new RoverSouthState();
         int expectedY = 1;
 
@@ -18,21 +18,21 @@ public class RoverSouthStateTest {
     }
 
     @Test
-    public void shouldReturnWestDirection() {
+    public void shouldReturnRightDirection() {
         RoverSouthState roverSouthState = new RoverSouthState();
 
-        char actualDirection = roverSouthState.turn("R");
+        Direction actualDirection = roverSouthState.turnRight();
 
-        assertEquals(actualDirection, 'W');
+        assertEquals(actualDirection, Direction.WEST);
     }
 
     @Test
-    public void shouldReturnEastDirection() {
+    public void shouldReturnLeftDirection() {
         RoverSouthState roverSouthState = new RoverSouthState();
 
-        char actualDirection = roverSouthState.turn("L");
+        Direction actualDirection = roverSouthState.turnLeft();
 
-        assertEquals(actualDirection, 'E');
+        assertEquals(actualDirection, Direction.EAST);
     }
 
 }

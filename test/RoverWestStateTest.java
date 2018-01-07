@@ -5,17 +5,17 @@ import static org.junit.Assert.assertEquals;
 public class RoverWestStateTest {
 
     @Test
-    public void shouldReturnWestDirection() {
+    public void shouldReturnRightDirection() {
         RoverWestState roverWestState = new RoverWestState();
 
-        char actualDirection = roverWestState.turn("R");
+        Direction actualDirection = roverWestState.turnRight();
 
-        assertEquals(actualDirection, 'N');
+        assertEquals(actualDirection, Direction.NORTH);
     }
 
     @Test
     public void shouldReduceInOneXPosition() {
-        Rover rover = new Rover(3, 0, 'W');
+        Rover rover = new Rover(3, 0, "W");
         RoverWestState roverWestState = new RoverWestState();
         int expectedX = 2;
 
@@ -26,11 +26,11 @@ public class RoverWestStateTest {
     }
 
     @Test
-    public void shouldReturnSouthDirection() {
+    public void shouldReturnLeftDirection() {
         RoverWestState roverWestState = new RoverWestState();
 
-        char actualDirection = roverWestState.turn("L");
+        Direction actualDirection = roverWestState.turnLeft();
 
-        assertEquals(actualDirection, 'S');
+        assertEquals(actualDirection, Direction.SOUTH);
     }
 }

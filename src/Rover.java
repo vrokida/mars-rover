@@ -2,11 +2,11 @@ public class Rover {
 
     private Position position;
 
-    private char direction;
+    private Direction direction;
 
-    public Rover(int x, int y, char direction) {
+    public Rover(int x, int y, String direction) {
         this.position = new Position(x, y);
-        this.direction = direction;
+        this.direction = Direction.fromString(direction);
     }
 
     public Position getPosition() {
@@ -21,8 +21,8 @@ public class Rover {
         return position.getY();
     }
 
-    public char getDirection() {
-        return direction;
+    public String getDirection() {
+        return direction.getDirection();
     }
 
     public void followInstructions(String instructions) {
@@ -38,7 +38,11 @@ public class Rover {
 
     private void turn(String instruction) {
         RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
-        this.direction = roverDirectionStatePrototype.prototype(this.direction).turn(instruction);
+        if(instruction.equals("R")) {
+            this.direction = roverDirectionStatePrototype.prototype(this.direction).turnRight();
+        }else {
+            this.direction = roverDirectionStatePrototype.prototype(this.direction).turnLeft();
+        }
     }
 
     private void move() {

@@ -8,8 +8,12 @@ public class RoverEastState implements RoverDirectionState {
     }
 
     @Override
-    public char turn(String instruction) {
+    public Direction turnRight() {
+        return Direction.SOUTH;
+    }
 
-        return instruction.equals("R") ? 'S' : 'N';
+    @Override
+    public Direction turnLeft() {
+        return Direction.NORTH;
     }
 }

@@ -6,10 +6,10 @@ import static org.junit.Assert.assertEquals;
 
 public class RoverTest {
 
-    private static final char N = 'N';
-    private static final char S = 'S';
-    private static final char W = 'W';
-    private static final char E = 'E';
+    private static final String N = "N";
+    private static final String S = "S";
+    private static final String W = "W";
+    private static final String E = "E";
 
     @Test
     public void shouldSetRightPosition() {
@@ -64,7 +64,7 @@ public class RoverTest {
 
         rover.followInstructions("M");
 
-        assertRover(rover, expectedX, expectedY, 'E');
+        assertRover(rover, expectedX, expectedY, E);
     }
 
 
@@ -168,7 +168,7 @@ public class RoverTest {
 
     }
 
-    private void assertRover(Rover actualRover, int expectedX, int expectedY, char expectedDirection){
+    private void assertRover(Rover actualRover, int expectedX, int expectedY, String expectedDirection){
         assertEquals(actualRover.getX(), expectedX);
         assertEquals(actualRover.getY(), expectedY);
         assertEquals(actualRover.getDirection(), expectedDirection);

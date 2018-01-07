@@ -8,7 +8,7 @@ public class RoverDirectionStatePrototypeTest {
     public void shouldReturnRoverNorthStateWhenReceiveNAsKey() {
         RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
 
-        RoverDirectionState roverDirectionState = roverDirectionStatePrototype.prototype('N');
+        RoverDirectionState roverDirectionState = roverDirectionStatePrototype.prototype(Direction.NORTH);
 
         assertTrue(roverDirectionState instanceof RoverNorthState);
     }
@@ -17,7 +17,7 @@ public class RoverDirectionStatePrototypeTest {
     public void shouldReturnRoverSouthStateWhenReceiveSAsKey() {
         RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
 
-        RoverDirectionState roverDirectionState = roverDirectionStatePrototype.prototype('S');
+        RoverDirectionState roverDirectionState = roverDirectionStatePrototype.prototype(Direction.SOUTH);
 
         assertTrue(roverDirectionState instanceof RoverSouthState);
     }
@@ -26,7 +26,7 @@ public class RoverDirectionStatePrototypeTest {
     public void shouldReturnRoverEastStateWhenReceiveEAsKey() {
         RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
 
-        RoverDirectionState roverDirectionState = roverDirectionStatePrototype.prototype('E');
+        RoverDirectionState roverDirectionState = roverDirectionStatePrototype.prototype(Direction.EAST);
 
         assertTrue(roverDirectionState instanceof RoverEastState);
     }
@@ -35,7 +35,7 @@ public class RoverDirectionStatePrototypeTest {
     public void shouldReturnRoverWestStateWhenReceiveEAsKey() {
         RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
 
-        RoverDirectionState roverDirectionState = roverDirectionStatePrototype.prototype('W');
+        RoverDirectionState roverDirectionState = roverDirectionStatePrototype.prototype(Direction.WEST);
 
         assertTrue(roverDirectionState instanceof RoverWestState);
     }
