@@ -1,3 +1,5 @@
+package location;
+
 public class Position {
     int x;
     int y;
