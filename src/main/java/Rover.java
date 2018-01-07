@@ -1,4 +1,5 @@
 import location.*;
+import movement.LunarNavigator;
 import movement.Motioner;
 
 public class Rover {
@@ -10,6 +11,7 @@ public class Rover {
         Position position = new Position(x, y);
         Locator locator = new MapLocator(RoverDirectionStatePrototype.prototype(dir, position));
         this.locator = locator;
+        mover = new LunarNavigator();
     }
 
     public void followInstructions(String instructions) {
@@ -24,6 +26,7 @@ public class Rover {
     private void move(String instruction) {
         if(instruction.equals("M")) {
             Location nextLocation = locator.nextLocation(instruction);
+            System.out.println(nextLocation);
             mover.move(nextLocation);
         }
     }

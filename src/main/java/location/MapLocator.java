@@ -14,7 +14,7 @@ public class MapLocator implements Locator{
 
     @Override
     public Location nextLocation(String command) {
-        System.out.println("Calculating next location");
+        System.out.print("Calculating next location ");
         this.location = location.move(command);
         return this.location;
     }

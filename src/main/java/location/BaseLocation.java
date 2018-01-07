@@ -9,4 +9,11 @@ public abstract class BaseLocation implements Location {
 //        }
 //        return false;
 //    }
+protected Position position;
+    protected  CardinalPoint direction;
+
+    @Override
+    public String toString() {
+        return "X:"+position.x +" Y:"+position.y +" "+direction;
+    }
 }

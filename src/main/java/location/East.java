@@ -3,11 +3,10 @@ package location;
 public class East  extends BaseLocation implements Location {
 
 
-    private Position position;
-    private CardinalPoint direction = CardinalPoint.EAST;
 
     public East(Position position) {
         this.position = position;
+        this.direction = CardinalPoint.EAST;
 
     }
 

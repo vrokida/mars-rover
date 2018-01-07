@@ -2,11 +2,10 @@ package location;
 
 public class West extends BaseLocation implements Location {
 
-    private Position position;
-    private CardinalPoint direction = CardinalPoint.WEST;
 
     public West(Position position) {
         this.position = position;
+        this.direction = CardinalPoint.WEST;
 
     }
 

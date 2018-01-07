@@ -2,11 +2,11 @@ package location;
 
 public class North extends BaseLocation implements Location {
 
-    private Position position;
-    private CardinalPoint direction = CardinalPoint.NORTH;
+
 
     public North(Position position) {
         this.position = position;
+        this.direction = CardinalPoint.NORTH;
 
     }
 
