@@ -11,7 +11,7 @@ public class RoverSouthStateTest {
         RoverSouthState roverSouthState = new RoverSouthState();
         int expectedY = 1;
 
-        Position position = roverSouthState.move(rover);
+        Position position = roverSouthState.move(rover.getPosition());
 
         Assert.assertEquals(position.getX(), rover.getX());
         Assert.assertEquals(position.getY(), expectedY);

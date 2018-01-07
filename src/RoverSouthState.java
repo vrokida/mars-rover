@@ -2,8 +2,9 @@
 public class RoverSouthState implements RoverDirectionState {
 
     @Override
-    public Position move(Rover rover) {
-        return new Position(rover.getX(), rover.getY() - 1);
+    public Position move(Position position) {
+        position.moveBackInY();
+        return position;
     }
 
     @Override

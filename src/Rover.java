@@ -9,6 +9,10 @@ public class Rover {
         this.direction = direction;
     }
 
+    public Position getPosition() {
+        return position;
+    }
+
     public int getX() {
         return position.getX();
     }
@@ -39,6 +43,6 @@ public class Rover {
 
     private void move() {
         RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
-        this.position = roverDirectionStatePrototype.prototype(this.direction).move(this);
+        this.position = roverDirectionStatePrototype.prototype(this.direction).move(this.position);
     }
 }

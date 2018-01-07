@@ -10,14 +10,14 @@ public class RoverNorthStateTest {
         RoverNorthState roverNorthState = new RoverNorthState();
         int expectedY = 2;
 
-        Position actualPosition = roverNorthState.move(rover);
+        Position actualPosition = roverNorthState.move(rover.getPosition());
 
         assertEquals(actualPosition.getX(), rover.getX());
         assertEquals(actualPosition.getY(), expectedY);
     }
 
     @Test
-    public void shouldReturnEastDirection() {
+    public void shouldReturnRightDirection() {
         RoverNorthState roverNorthState = new RoverNorthState();
 
         char actualDirection = roverNorthState.turn("R");
