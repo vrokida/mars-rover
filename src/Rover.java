@@ -1,29 +1,25 @@
 public class Rover {
 
-    private int x;
-
-    private int y;
+    private Position position;
 
     private char direction;
 
     public Rover(int x, int y, char direction) {
-        this.x = x;
-        this.y = y;
+        this.position = new Position(x, y);
         this.direction = direction;
     }
 
     public int getX() {
-        return x;
+        return position.getX();
     }
 
     public int getY() {
-        return y;
+        return position.getY();
     }
 
     public char getDirection() {
         return direction;
     }
-
 
     public void followInstructions(String instructions) {
         if (instructions.equals("M")) {
@@ -34,20 +30,12 @@ public class Rover {
     }
 
     private void turn() {
-        if(this.direction == 'N') {
-            this.direction = 'E';
-        }
-        else if(this.direction == 'E') {
-            this.direction = 'S';
-        }
+        RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
+        this.direction = roverDirectionStatePrototype.prototype(this.direction).turn();
     }
 
     private void move() {
-        if (this.direction == 'N') {
-            this.x += 1;
-        }
-        if (this.direction == 'S') {
-            this.x -= 1;
-        }
+        RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
+        this.position = roverDirectionStatePrototype.prototype(this.direction).move(this);
     }
 }
