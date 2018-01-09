@@ -14,7 +14,7 @@ public class RoverDirectionStatePrototype {
         this.prototypes.put(Direction.WEST, new RoverWestState());
     }
 
-    public RoverDirectionState prototype(Direction direction) {
+    public RoverDirectionState getState(Direction direction) {
         return prototypes.get(direction);
     }
 }

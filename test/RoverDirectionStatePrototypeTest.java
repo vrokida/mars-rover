@@ -8,7 +8,7 @@ public class RoverDirectionStatePrototypeTest {
     public void shouldReturnRoverNorthStateWhenReceiveNAsKey() {
         RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
 
-        RoverDirectionState roverDirectionState = roverDirectionStatePrototype.prototype(Direction.NORTH);
+        RoverDirectionState roverDirectionState = roverDirectionStatePrototype.getState(Direction.NORTH);
 
         assertTrue(roverDirectionState instanceof RoverNorthState);
     }
@@ -17,7 +17,7 @@ public class RoverDirectionStatePrototypeTest {
     public void shouldReturnRoverSouthStateWhenReceiveSAsKey() {
         RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
 
-        RoverDirectionState roverDirectionState = roverDirectionStatePrototype.prototype(Direction.SOUTH);
+        RoverDirectionState roverDirectionState = roverDirectionStatePrototype.getState(Direction.SOUTH);
 
         assertTrue(roverDirectionState instanceof RoverSouthState);
     }
@@ -26,7 +26,7 @@ public class RoverDirectionStatePrototypeTest {
     public void shouldReturnRoverEastStateWhenReceiveEAsKey() {
         RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
 
-        RoverDirectionState roverDirectionState = roverDirectionStatePrototype.prototype(Direction.EAST);
+        RoverDirectionState roverDirectionState = roverDirectionStatePrototype.getState(Direction.EAST);
 
         assertTrue(roverDirectionState instanceof RoverEastState);
     }
@@ -35,7 +35,7 @@ public class RoverDirectionStatePrototypeTest {
     public void shouldReturnRoverWestStateWhenReceiveEAsKey() {
         RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
 
-        RoverDirectionState roverDirectionState = roverDirectionStatePrototype.prototype(Direction.WEST);
+        RoverDirectionState roverDirectionState = roverDirectionStatePrototype.getState(Direction.WEST);
 
         assertTrue(roverDirectionState instanceof RoverWestState);
     }

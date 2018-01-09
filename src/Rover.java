@@ -4,9 +4,12 @@ public class Rover {
 
     private Direction direction;
 
+    private RoverDirectionState state;
+
     public Rover(int x, int y, String direction) {
         this.position = new Position(x, y);
         this.direction = Direction.fromString(direction);
+        this.state = new RoverDirectionStatePrototype().getState(this.direction);
     }
 
     public Position getPosition() {
@@ -37,16 +40,14 @@ public class Rover {
     }
 
     private void turn(String instruction) {
-        RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
-        if(instruction.equals("R")) {
-            this.direction = roverDirectionStatePrototype.prototype(this.direction).turnRight();
-        }else {
-            this.direction = roverDirectionStatePrototype.prototype(this.direction).turnLeft();
+        if (instruction.equals("R")) {
+            this.direction = state.turnRight();
+        } else {
+            this.direction = state.turnLeft();
         }
     }
 
     private void move() {
-        RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
-        this.position = roverDirectionStatePrototype.prototype(this.direction).move(this.position);
+        this.position = state.move(this.position);
     }
 }
