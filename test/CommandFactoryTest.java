@@ -2,31 +2,31 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
 
-public class FactoryCommandTest {
+public class CommandFactoryTest {
 
     @Test
     public void shouldGetMoeCommand() {
-        FactoryCommand factoryCommand = new FactoryCommand();
+        CommandFactory commandFactory = new CommandFactory();
 
-        Command command = factoryCommand.getCommand("M");
+        Command command = commandFactory.getCommand("M");
 
         assertTrue(command instanceof MoveCommand);
     }
 
     @Test
     public void shouldGetTurnLeftMove() {
-        FactoryCommand factoryCommand = new FactoryCommand();
+        CommandFactory commandFactory = new CommandFactory();
 
-        Command command = factoryCommand.getCommand("L");
+        Command command = commandFactory.getCommand("L");
 
         assertTrue(command instanceof TurnLeftCommand);
     }
 
     @Test
     public void shouldGetTurnRightMove() {
-        FactoryCommand factoryCommand = new FactoryCommand();
+        CommandFactory commandFactory = new CommandFactory();
 
-        Command command = factoryCommand.getCommand("R");
+        Command command = commandFactory.getCommand("R");
 
         assertTrue(command instanceof TurnRightCommand);
     }

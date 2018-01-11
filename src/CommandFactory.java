@@ -1,11 +1,11 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class FactoryCommand {
+public class CommandFactory {
 
     private Map<String, Command> mapOfCommands;
 
-    public FactoryCommand() {
+    public CommandFactory() {
         this.mapOfCommands = new HashMap<>();
         this.mapOfCommands.put("M", new MoveCommand());
         this.mapOfCommands.put("L", new TurnLeftCommand());

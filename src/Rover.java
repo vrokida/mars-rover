@@ -7,7 +7,7 @@ public class Rover {
     public Rover(int x, int y, String direction) {
         this.position = new Position(x, y);
         this.direction = Direction.fromString(direction);
-        this.state = new RoverDirectionStatePrototype(this).getState(this.direction);
+        this.state = new RoverDirectionStateFactory().getState(this);
     }
 
     public Position getPosition() {
@@ -37,8 +37,7 @@ public class Rover {
     public void followInstructions(String instructions) {
         String[] instructionsKeys = instructions.split("");
         for (String instructionKey : instructionsKeys) {
-            FactoryCommand factoryCommand = new FactoryCommand();
-            Command command = factoryCommand.getCommand(instructionKey);
+            Command command = new CommandFactory().getCommand(instructionKey);
             command.execute(this.state);
         }
     }
