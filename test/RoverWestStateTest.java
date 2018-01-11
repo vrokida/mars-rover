@@ -1,36 +1,46 @@
 import org.junit.Test;
 
+import java.util.Random;
+
 import static org.junit.Assert.assertEquals;
 
 public class RoverWestStateTest {
 
     @Test
     public void shouldReturnRightDirection() {
-        RoverWestState roverWestState = new RoverWestState();
+        Rover rover = getRoverWithWestDirection();
+        RoverWestState roverWestState = new RoverWestState(rover);
 
-        Direction actualDirection = roverWestState.turnRight();
+        roverWestState.turnRight();
 
-        assertEquals(actualDirection, Direction.NORTH);
+        assertEquals(rover.getDirection(), Direction.NORTH.getDirection());
     }
 
     @Test
     public void shouldReduceInOneXPosition() {
-        Rover rover = new Rover(3, 0, "W");
-        RoverWestState roverWestState = new RoverWestState();
+        int y = (new Random()).nextInt();
+        Rover rover = new Rover(3, y, Direction.WEST.getDirection());
+        RoverWestState roverWestState = new RoverWestState(rover);
         int expectedX = 2;
 
-        Position actualPosition = roverWestState.move(rover.getPosition());
+        roverWestState.move();
 
-        assertEquals(actualPosition.getX(), expectedX);
-        assertEquals(actualPosition.getY(), rover.getY());
+        assertEquals(rover.getX(), expectedX);
+        assertEquals(rover.getY(), rover.getY());
     }
 
     @Test
     public void shouldReturnLeftDirection() {
-        RoverWestState roverWestState = new RoverWestState();
+        Rover rover = getRoverWithWestDirection();
+        RoverWestState roverWestState = new RoverWestState(rover);
 
-        Direction actualDirection = roverWestState.turnLeft();
+        roverWestState.turnLeft();
 
-        assertEquals(actualDirection, Direction.SOUTH);
+        assertEquals(rover.getDirection(), Direction.SOUTH.getDirection());
+    }
+
+    private Rover getRoverWithWestDirection() {
+        Random random = new Random();
+        return new Rover(random.nextInt(), random.nextInt(), Direction.WEST.getDirection());
     }
 }

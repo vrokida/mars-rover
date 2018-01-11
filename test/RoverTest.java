@@ -168,6 +168,19 @@ public class RoverTest {
 
     }
 
+    @Test
+    public void shouldMoveOneStepAndTurnLeftAndThenTurnRightAndMoveOneStep() {
+        int expectedY = 7;
+        int expectedX = 4;
+        Rover rover = new Rover(4, 5, N);
+
+        rover.followInstructions("ML");
+        rover.followInstructions("RM");
+
+        assertRover(rover, expectedX, expectedY, N);
+
+    }
+
     private void assertRover(Rover actualRover, int expectedX, int expectedY, String expectedDirection){
         assertEquals(actualRover.getX(), expectedX);
         assertEquals(actualRover.getY(), expectedY);

@@ -1,9 +1,9 @@
 
 public interface RoverDirectionState {
 
-    Position move(Position position);
+    void move();
 
-    Direction turnRight();
+    void turnRight();
 
-    Direction turnLeft();
+    void turnLeft();
 }

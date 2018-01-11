@@ -1,38 +1,48 @@
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Random;
+
 import static org.junit.Assert.assertEquals;
 
 public class RoverSouthStateTest {
 
     @Test
     public void shouldReduceInOneYPosition() {
-        Rover rover = new Rover(0, 2, "S");
-        RoverSouthState roverSouthState = new RoverSouthState();
+        int x = (new Random()).nextInt();
+        Rover rover = new Rover(x, 2, Direction.SOUTH.getDirection());
+        RoverSouthState roverSouthState = new RoverSouthState(rover);
         int expectedY = 1;
 
-        Position position = roverSouthState.move(rover.getPosition());
+        roverSouthState.move();
 
-        Assert.assertEquals(position.getX(), rover.getX());
-        Assert.assertEquals(position.getY(), expectedY);
+        Assert.assertEquals(rover.getX(), rover.getX());
+        Assert.assertEquals(rover.getY(), expectedY);
     }
 
     @Test
     public void shouldReturnRightDirection() {
-        RoverSouthState roverSouthState = new RoverSouthState();
+        Rover rover = getRoverWithSouthDirection();
+        RoverSouthState roverSouthState = new RoverSouthState(rover);
 
-        Direction actualDirection = roverSouthState.turnRight();
+        roverSouthState.turnRight();
 
-        assertEquals(actualDirection, Direction.WEST);
+        assertEquals(rover.getDirection(), Direction.WEST.getDirection());
     }
 
     @Test
     public void shouldReturnLeftDirection() {
-        RoverSouthState roverSouthState = new RoverSouthState();
+        Rover rover = getRoverWithSouthDirection();
+        RoverSouthState roverSouthState = new RoverSouthState(rover);
 
-        Direction actualDirection = roverSouthState.turnLeft();
+        roverSouthState.turnLeft();
 
-        assertEquals(actualDirection, Direction.EAST);
+        assertEquals(rover.getDirection(), Direction.EAST.getDirection());
+    }
+
+    private Rover getRoverWithSouthDirection() {
+        Random random = new Random();
+        return new Rover(random.nextInt(), random.nextInt(), Direction.SOUTH.getDirection());
     }
 
 }

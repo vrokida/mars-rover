@@ -1,17 +1,24 @@
 
 public class RoverNorthState implements RoverDirectionState {
 
+    private Rover rover;
+
+    public RoverNorthState(Rover rover) {
+        this.rover = rover;
+    }
+
     @Override
-    public Position move(Position position) {
-       position.moveForwardInY();
-        return position;
+    public void move() {
+        rover.getPosition().moveForwardInY();
     }
 
-    public Direction turnRight() {
-        return Direction.EAST;
+    public void turnRight() {
+        this.rover.setState(new RoverEastState(rover));
+        this.rover.setDirection(Direction.EAST);
     }
 
-    public Direction turnLeft() {
-        return Direction.WEST;
+    public void turnLeft() {
+        this.rover.setState(new RoverWestState(rover));
+        this.rover.setDirection(Direction.WEST);
     }
 }

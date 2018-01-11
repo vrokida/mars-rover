@@ -6,7 +6,8 @@ public class RoverDirectionStatePrototypeTest {
 
     @Test
     public void shouldReturnRoverNorthStateWhenReceiveNAsKey() {
-        RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
+        Rover rover = new Rover(0, 1, "N");
+        RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype(rover);
 
         RoverDirectionState roverDirectionState = roverDirectionStatePrototype.getState(Direction.NORTH);
 
@@ -15,7 +16,8 @@ public class RoverDirectionStatePrototypeTest {
 
     @Test
     public void shouldReturnRoverSouthStateWhenReceiveSAsKey() {
-        RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
+        Rover rover = new Rover(0, 1, "S");
+        RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype(rover);
 
         RoverDirectionState roverDirectionState = roverDirectionStatePrototype.getState(Direction.SOUTH);
 
@@ -24,7 +26,8 @@ public class RoverDirectionStatePrototypeTest {
 
     @Test
     public void shouldReturnRoverEastStateWhenReceiveEAsKey() {
-        RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
+        Rover rover = new Rover(0, 1, "E");
+        RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype(rover);
 
         RoverDirectionState roverDirectionState = roverDirectionStatePrototype.getState(Direction.EAST);
 
@@ -33,7 +36,8 @@ public class RoverDirectionStatePrototypeTest {
 
     @Test
     public void shouldReturnRoverWestStateWhenReceiveEAsKey() {
-        RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype();
+        Rover rover = new Rover(0, 1, "W");
+        RoverDirectionStatePrototype roverDirectionStatePrototype = new RoverDirectionStatePrototype(rover);
 
         RoverDirectionState roverDirectionState = roverDirectionStatePrototype.getState(Direction.WEST);
 

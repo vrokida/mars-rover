@@ -1,36 +1,46 @@
 import org.junit.Test;
 
+import java.util.Random;
+
 import static org.junit.Assert.assertEquals;
 
 public class RoverNorthStateTest {
 
     @Test
     public void shouldIncreaseInOneYPosition() {
-        Rover rover = new Rover(0, 1, "N");
-        RoverNorthState roverNorthState = new RoverNorthState();
+        int x = (new Random()).nextInt();
+        Rover rover = new Rover(x, 1, Direction.NORTH.getDirection());
+        RoverNorthState roverNorthState = new RoverNorthState(rover);
         int expectedY = 2;
 
-        Position actualPosition = roverNorthState.move(rover.getPosition());
+        roverNorthState.move();
 
-        assertEquals(actualPosition.getX(), rover.getX());
-        assertEquals(actualPosition.getY(), expectedY);
+        assertEquals(rover.getX(), rover.getX());
+        assertEquals(rover.getY(), expectedY);
     }
 
     @Test
     public void shouldReturnRightDirection() {
-        RoverNorthState roverNorthState = new RoverNorthState();
+        Rover rover = getRoverWithNortDirection();
+        RoverNorthState roverNorthState = new RoverNorthState(rover);
 
-        Direction actualDirection = roverNorthState.turnRight();
+        roverNorthState.turnRight();
 
-        assertEquals(actualDirection, Direction.EAST);
+        assertEquals(rover.getDirection(), Direction.EAST.getDirection());
     }
 
     @Test
     public void shouldReturnWestDirection() {
-        RoverNorthState roverNorthState = new RoverNorthState();
+        Rover rover = getRoverWithNortDirection();
+        RoverNorthState roverNorthState = new RoverNorthState(rover);
 
-        Direction actualDirection = roverNorthState.turnLeft();
+        roverNorthState.turnLeft();
 
-        assertEquals(actualDirection, Direction.WEST);
+        assertEquals(rover.getDirection(), Direction.WEST.getDirection());
+    }
+
+    private Rover getRoverWithNortDirection() {
+        Random random = new Random();
+        return new Rover(random.nextInt(), random.nextInt(), Direction.NORTH.getDirection());
     }
 }
