@@ -37,23 +37,9 @@ public class Rover {
     public void followInstructions(String instructions) {
         String[] instructionsKeys = instructions.split("");
         for (String instructionKey : instructionsKeys) {
-            if (instructionKey.equals("M")) {
-                move();
-            } else {
-                turn(instructionKey);
-            }
+            FactoryCommand factoryCommand = new FactoryCommand();
+            Command command = factoryCommand.getCommand(instructionKey);
+            command.execute(this.state);
         }
-    }
-
-    private void turn(String instruction) {
-        if (instruction.equals("R")) {
-            state.turnRight();
-        } else {
-            state.turnLeft();
-        }
-    }
-
-    private void move() {
-        state.move();
     }
 }
