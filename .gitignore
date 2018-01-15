@@ -1,0 +1,17 @@
+target
+*.iml
+.idea
+.java-version
+build/
+*.ipr
+*.iws
+.classpath
+.project
+.settings/
+.gradle
+.idea
+gradlew.bat
+gradlew
+gradle
+build
+out/
